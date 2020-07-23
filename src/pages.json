@@ -1,0 +1,31 @@
+{
+	"pages": [ 
+		{
+			"path": "pages/index",
+			"name":"index",
+			"style": {
+				"navigationBarTitleText": "uni-app"
+			}
+		},
+		{
+			"path": "pages/index/log",
+			"name":"log",
+			"style": {
+				"navigationBarTitleText": "log"
+			}
+		},
+		{
+			"path": "pages/index/nologin",
+			"name":"nologin",
+			"style": {
+				"navigationBarTitleText": "nologin"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	}
+}
