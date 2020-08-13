@@ -21,7 +21,9 @@
 			jump(){
 				console.log('jump')
 				uni.navigateTo({
-					url:'/pages/index'
+					url:'/pages/index?st=65',
+					
+					params:true,
 				})
 			}
 		}
