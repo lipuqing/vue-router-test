@@ -1,10 +1,13 @@
 import Vue from 'vue'
 import App from './App'
 import vueRouter from 'vue-router'
+import pay from './common/pay.js'
 
 Vue.use(vueRouter)
 
 Vue.config.productionTip = false
+
+Vue.prototype.$pay = pay.install // 支付方式
 
 App.mpType = 'app'
 
@@ -34,4 +37,4 @@ Vue.prototype.$jump = function (data) {
   // let url = window.location.origin  + '/pages/index/nologin'
 }
 
-Vue.prototype.$jump()
+

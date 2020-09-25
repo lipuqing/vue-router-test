@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=8">
+  <meta http-equiv="Expires" content="0">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-control" content="no-cache">
+  <meta http-equiv="Cache" content="no-cache">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+  <title>
+    <%= htmlWebpackPlugin.options.title %>
+  </title>
+  <style>
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    .uni-input-placeholder {
+      color: #b3afaf !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script src="https://www.singchinahx.com/Public/pcxgs/js/PCASClass.js"></script>
+  <script type="text/javascript" src="https://mp.singchina.com/js/jquery.min.js"></script>
+  <script>
+    // 转化rem单位
+    ;
+    (function (doc, win) {
+      var docEl = doc.documentElement,
+        resizeEvt =
+        'orientationchange' in window ? 'orientationchange' : 'resize',
+        recalc = function () {
+          var clientWidth = docEl.clientWidth
+          if (!clientWidth) return
+          if (clientWidth >= 375) {
+            docEl.style.fontSize = '100px'
+          } else {
+            docEl.style.fontSize = 100 * (clientWidth / 375) + 'px'
+          }
+          var html = document.getElementsByTagName('html')[0]
+          var settedFs = (settingFs = parseInt(100 * (clientWidth / 375)))
+          var whileCount = 0
+          while (true) {
+            var realFs = parseInt(window.getComputedStyle(html).fontSize)
+            var delta = realFs - settedFs
+            //不相等
+            if (Math.abs(delta) >= 1) {
+              if (delta > 0) settingFs--
+              else settingFs++
+              html.setAttribute(
+                'style',
+                'font-size:' + settingFs + 'px!important'
+              )
+            } else break
+            if (whileCount++ > 100) break
+          }
+        }
+      if (!doc.addEventListener) return
+      win.addEventListener(resizeEvt, recalc, false)
+      doc.addEventListener('DOMContentLoaded', recalc, false)
+    })(document, window)
+  </script>
+  <script>
+    // 屏蔽F12
+    document.onkeydown = function () {
+      //f12键
+      if (window.event && window.event.keyCode == 123) {
+        event.keyCode = 0;
+        event.returnValue = false;
+      }
+    };
+
+    // 屏蔽右键菜单 
+    document.oncontextmenu = function (event) {
+      if (window.event) {
+        event = window.event;
+      }
+      try {
+        var the = event.srcElement;
+        if (!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")) {
+          return false;
+        }
+        return true;
+      } catch (e) {
+        return false;
+      }
+    };
+
+    // 屏蔽粘贴
+    document.onpaste = function (event) {
+      if (window.event) {
+        event = window.event;
+      }
+      try {
+        var the = event.srcElement;
+        if (!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")) {
+          return false;
+        }
+        return true;
+      } catch (e) {
+        return false;
+      }
+    };
+
+    // 屏蔽复制
+    document.oncopy = function (event) {
+      if (window.event) {
+        event = window.event;
+      }
+      try {
+        var the = event.srcElement;
+        if (!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")) {
+          return false;
+        }
+        return true;
+      } catch (e) {
+        return false;
+      }
+    };
+
+    // 屏蔽剪切
+    document.oncut = function (event) {
+      if (window.event) {
+        event = window.event;
+      }
+      try {
+        var the = event.srcElement;
+        if (!((the.tagName == "INPUT" && the.type.toLowerCase() == "text") || the.tagName == "TEXTAREA")) {
+          return false;
+        }
+        return true;
+      } catch (e) {
+        return false;
+      }
+    };
+    document.addEventListener("touchmove", function (e) {
+      e.preventDefault()
+    }, false);
+    $(document).ready(function () {
+      $(document).bind("contextmenu", function (e) {
+        return false;
+      });
+    });
+    $(document).ready(function () {
+      $(document).bind("keydown", function (e) {
+        e = window.event || e;
+        if (e.keyCode == 116) {
+          e.keyCode = 0;
+          return false;
+        }
+      });
+    });
+    $(document).ready(function () {
+      $(document).bind("keydown", function (e) {
+        e = window.event || e;
+        if (e.keyCode == 118) {
+          e.keyCode = 0;
+          return false;
+        }
+      });
+    });
+    $(document).ready(function () {
+      $(document).bind("keydown", function (e) {
+        e = window.event || e;
+        if (e.keyCode == 122) {
+          e.keyCode = 0;
+          return false;
+        }
+      });
+    });
+    $(document).ready(function () {
+      $(document).bind("keydown", function (e) {
+        e = window.event || e;
+        if (e.keyCode == 123) {
+          e.keyCode = 0;
+          return false;
+        }
+      });
+    });
+    $(document).ready(function () {
+      $(document).bind("keydown", function (e) {
+        e = window.event || e;
+        if (e.keyCode == 83) {
+          e.keyCode = 0;
+          return false;
+        }
+      });
+    });
+    $(document).ready(function () {
+      setTimeout(function () {
+        let dom = document.getElementsByTagName('uni-actionsheet')
+        console.log(dom)
+        dom.remove(dom)
+      }, 1500)
+    })
+    // uni-actionsheet
+  </script>
+</body>
+
+</html>

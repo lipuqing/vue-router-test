@@ -53,6 +53,14 @@
 	"quickapp": { /* 快应用特有相关 */
 
 	},
+	
+	"h5": {
+		"template": "template.h5.html",
+		"router": {
+		  "mode": "history",
+		  "base": "/"
+		}
+	},
 	"mp-weixin": { /* 微信小程序特有相关 */
 		"appid": "",
 		"setting": {

@@ -54,6 +54,8 @@
     "@dcloudio/uni-stat": "^2.0.0-27920200618002",
     "core-js": "^3.6.5",
     "flyio": "^0.6.2",
+    "less": "^3.12.2",
+    "less-loader": "^7.0.1",
     "regenerator-runtime": "^0.12.1",
     "uni-simple-router": "^1.5.5",
     "vue": "^2.6.11",
